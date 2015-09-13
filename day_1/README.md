@@ -204,7 +204,7 @@ CSS
 - As a result, we can use transitions to animate between many different states.
 - Let's take a look at the syntax:
 
-```
+```css
 transition: property duration easing;
 ```
 
@@ -224,7 +224,7 @@ transition: property duration easing;
 - To reduce the chance of a transition failure, developers normally add "fallbacks" for older browsers.
 - These are usually vendor prefixes:
 
-```
+```css
 transition: width 1s linear;
 -webkit-transition: width 1s linear;
 -moz-transition: width 1s linear;
@@ -237,7 +237,7 @@ transition: width 1s linear;
 - Transforms allow you to temporarily change or warp elements to create neat effects.
 - Let's take a look at the syntax:
 
-```
+```css
 transform: transform-function;
 ```
 
@@ -249,7 +249,7 @@ transform: transform-function;
 - A more exhaustive list can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/transform).
 - Let's say that we wanted to rotate an element upon hover:
 
-```
+```css
 #my-div {
 	width: 200px;
 	height: 200px;
@@ -269,7 +269,7 @@ transform: transform-function;
 - The idea is that instead of transitioning an element from one state to another slowly, you are specifying style attributes that must be accomplished during stops along the animation.
 - Here is the syntax:
 
-```
+```css
 div {
 	width:100px;
 	height:200px;
@@ -324,7 +324,7 @@ div {
 	- Your class should play a keyframe animation of its own.
 	- Use at least one transform function in your keyframe.
 
-##Using HTML5 Video
+## Using HTML5 Video
 - HTML5 video replaces the need for Flash in browsers that support the new standard.
 - It wraps in the standard controls that you are likely to see on a Flash player, with additional features such as responsiveness and a rich API of functions.
 - Because of these features, you can do things like [this](http://craftymind.com/factory/html5video/CanvasVideo.html).
@@ -340,7 +340,7 @@ div {
 - Note that we can specify multiple formats for browser compatibility.
 - Let's try an example with this video: http://vjs.zencdn.net/v/oceans.mp4
 
-##Video.js
+## Video.js
 - [Video.js](http://www.videojs.com/) is an API for working with HTML5 video.
 - The framework wraps in a robust UI to make the video look neat.
 - Let's take a look at the [Video.js documentation](https://github.com/videojs/video.js).
