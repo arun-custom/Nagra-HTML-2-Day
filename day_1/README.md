@@ -192,3 +192,156 @@ CSS
 	}
 }
 ```
+
+## Why CSS Animation over JavaScript?
+- CSS animations are handled by the native browser code.
+- This means that instead of JavaScript dynamically changing `style` attributes over a period of time, the animation is performed graphically via the C++ or Java code that runs the browser.
+- This produces an animation that is smoother and more robust than anything we can do with JS.
+
+## The `transition` Property
+- CSS animations are handled usually by slowly going from one state to another.
+- Think of a div for example that upon hover increases its width. A CSS transition essentially makes the process go in slow motion.
+- As a result, we can use transitions to animate between many different states.
+- Let's take a look at the syntax:
+
+```
+transition: property duration easing;
+```
+
+- The property here is the specific CSS property you want to animate. This can be a width, height, color, etc.
+- If you want to animate across many properties at the same time you can simply specify `all` instead of an actual property name.
+- The duration is the length of the animation. It is specified in seconds.
+- The easing is the character of the animation. It allows the animation to look more natural by changing its speed of execution dynamically throughout the duration. Here are the allowed values:
+	- ease (default)
+	- linear
+	- ease-in
+	- ease-out
+	- ease-in-out
+	- cubic-bezier(n,n,n,n)
+
+## Transition Fallbacks
+- It is also important to note that transitions are relatively new. As a result, certain older browsers may have limited support.
+- To reduce the chance of a transition failure, developers normally add "fallbacks" for older browsers.
+- These are usually vendor prefixes:
+
+```
+transition: width 1s linear;
+-webkit-transition: width 1s linear;
+-moz-transition: width 1s linear;
+-o-transition: width 1s linear;
+```
+
+- It is good practice to always put these in when you use transitions.
+
+## The `transform` Property
+- Transforms allow you to temporarily change or warp elements to create neat effects.
+- Let's take a look at the syntax:
+
+```
+transform: transform-function;
+```
+
+- This property makes use of transform "functions" that accomplish the effects.
+- Here is a list of commonly-used transform functions:
+	- translate
+	- rotate
+	- scale
+- A more exhaustive list can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/transform).
+- Let's say that we wanted to rotate an element upon hover:
+
+```
+#my-div {
+	width: 200px;
+	height: 200px;
+	border:#000 1px solid;
+	background-color:#900;
+}
+
+#my-div:hover {
+	transform: rotate(180deg);
+}
+```
+
+- As you can see, the div rotates instantly. How do you think we can animate the rotation instead?
+
+## CSS Keyframes
+- Keyframes allow you to perform complex animations using CSS alone.
+- The idea is that instead of transitioning an element from one state to another slowly, you are specifying style attributes that must be accomplished during stops along the animation.
+- Here is the syntax:
+
+```
+div {
+	width:100px;
+	height:200px;
+	background-color:red;
+	-webkit-animation:identifier 5s ease-in-out infinite;
+	animation:identifier 5s ease-in-out infinite;
+}
+
+@-webkit-keyframes identifier {
+	0% {
+		top:200px;
+	}
+
+	25% {
+		top:50px;
+	}
+
+	75% {
+		left:100px;
+	}
+
+	100% {
+		top:0;
+	}
+}
+
+@keyframes identifier {
+	0% {
+		top:200px;
+	}
+
+	25% {
+		top:50px;
+	}
+
+	75% {
+		left:100px;
+	}
+
+	100% {
+		top:0;
+	}
+}
+```
+
+## Keyframes Exercise
+- Try out some of the keyframes along with a transform function.
+- One idea may be to rotate a div during a keyframe animation.
+- Observe what happens as the div is transformed. Is this what you expected? Why or why not?
+- **Bonus:** Now take things a step further and integrate keyframes with JavaScript.
+	- Bind a click event to a button that adds a class to the div.
+	- Your class should play a keyframe animation of its own.
+	- Use at least one transform function in your keyframe.
+
+##Using HTML5 Video
+- HTML5 video replaces the need for Flash in browsers that support the new standard.
+- It wraps in the standard controls that you are likely to see on a Flash player, with additional features such as responsiveness and a rich API of functions.
+- Because of these features, you can do things like [this](http://craftymind.com/factory/html5video/CanvasVideo.html).
+- HTML5 video is implemented in the same way as audio in that it has its own tag:
+
+```html
+<video controls>
+	<source src="sample.ogg" type="video/ogg">
+	<source src="sample.mp4" type="video/mp4">
+</video>
+```
+
+- Note that we can specify multiple formats for browser compatibility.
+- Let's try an example with this video: http://vjs.zencdn.net/v/oceans.mp4
+
+##Video.js
+- [Video.js](http://www.videojs.com/) is an API for working with HTML5 video.
+- The framework wraps in a robust UI to make the video look neat.
+- Let's take a look at the [Video.js documentation](https://github.com/videojs/video.js).
+- We will try to implement the oceans video now using Video.js.
