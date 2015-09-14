@@ -615,3 +615,109 @@ worker.postMessage();
 - You will create a worker that sets an interval and increases a count by 1 every one second.
 - The worker should post the count back to the main file as a message.
 - The main file should detect the message and display the new count on the page.
+
+##HTML5 Canvas
+- Canvas allows many kinds of image manipulation through JavaScript.
+- You can create static images or dynamic scenes.
+- Canvas currently only supports 2D scenes but may support 3D scenes in the near future.
+
+## Canvas Exercise: A Simple Drawing
+- We will use canvas to draw a simple line and rectangle.
+- The final result will look like this:
+
+![Simple Canvas](img/simple_canvas.png)
+
+Step 1: Select the canvas element
+
+```javascript
+var canvas = document.getElementById("my-canvas");
+```
+
+Step 2: Get the canvas "context"
+
+```javascript
+var canvas_context = canvas.getContext("2d");
+```
+
+- The context is what you draw on using JavaScript.
+
+Step 3: Fill the rectangle onto the context
+
+```javascript
+canvas_context.fillRect(100, 100, 200, 200);
+```
+
+Step 4: Create the line
+
+```javascript
+canvas_context.beginPath();
+
+canvas_context.moveTo(400, 100);
+
+canvas_context.lineTo(400, 300);
+
+canvas_context.stroke();
+```
+
+## Kinetic JS: A Canvas API
+- Canvas is not incredibly intuitive to use, and there is quite a lot you can do with it.
+- Canvas APIs such as KineticJS, PaperJS, and RaphaelJS are commonly used to maximize the canvas potential.
+- We will be practicing using KineticJS to create a scene of rectangles that are draggable:
+
+![Kinetic Scene](img/kinetic_example.png)
+
+#### Everything in Kinetic starts with a "stage" that will contain the canvas:
+
+```javascript
+var stage = new Kinetic.Stage({
+	container:'container',
+	width:700,
+	height:500
+});
+```
+
+#### Next we need to create a layer to add elements too:
+
+```javascript
+var layer = new Kinetic.Layer();
+
+stage.add(layer);
+```
+
+#### Add rectangles to layer:
+
+```javascript
+for (var i = 0; i < 10; i++) {
+	var rect = new Kinetic.Rect({
+		x:10 + (i * 20),
+		y:10 + (i * 20),
+		width:100,
+		height:80,
+		fill:"#900",
+		draggable:true,
+		stroke:"#000000",
+		strokeWidth:2
+	});
+
+	layer.add(rect);
+	layer.draw();
+}
+```
+
+#### With canvas you can even save the entire stage to JSON to be retrieved at a later time:
+
+```javascript
+localStorage.setItem("rectangle_sample", stage.toJSON());
+```
+
+#### If you then want to retrieve the JSON and reload the canvas you can do the following:
+
+```javascript
+var json = localStorage.getItem("rectangle_sample");
+var stage = Kinetic.Node.create(json, 'container');
+```
+
+## Canvas Exercise
+- In this exercise we will be saving the above example to localStorage and reloading it upon page load.
+- Your job is to create a button that the user can use to save the canvas where they want it.
+- When the user clicks the button it should save the canvas as JSON in localStorage and retrieve it on page load.
