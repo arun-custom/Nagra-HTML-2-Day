@@ -11,31 +11,31 @@
 
 #### getElementById()
 
-```
+```javascript
 document.getElementById("my-div");
 ```
 
 #### getElementsByClassName()
 
-```
+```javascript
 document.getElementsByClassName("my-div");
 ```
 
 #### getElementsByTagName()
 
-```
+```javascript
 document.getElementsByTagName("my-div");
 ```
 
 #### querySelector()
 
-```
+```javascript
 document.querySelector("#my-div");
 ```
 
 #### querySelectorAll()
 
-```
+```javascript
 document.querySelectorAll("#my-div.my-class");
 ```
 
@@ -155,7 +155,7 @@ document.getElementById("my-div").innerHTML = "<span>New HTML here</span>";
 - AJAX stands for Asynchronous JavaScript and XML.
 - Here is how it can be accomplished:
 
-```
+```javascript
 function reqListener () {
 	console.log(this.responseText);
 }
