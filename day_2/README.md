@@ -347,7 +347,7 @@ myPet.walk();
 ```
 
 ## Inheritance Exercise
-- Create a constructor function that will construct a plant object with country and isOrganic properties.
+- Create a constructor function that will construct a plant object with color, name and isOrganic properties.
 - Develop two prototype methods on Plant - showNameandColor and amIOrganic.
 - Write a constructor function for a fruit that will contain name and color properties.
 - Set the fruit prototype as an instance of a plant.
