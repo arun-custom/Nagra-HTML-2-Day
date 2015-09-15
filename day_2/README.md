@@ -176,10 +176,7 @@ oReq.send();
 ## AJAX Exercise
 - Let's make a request out to `http://daretodiscover.herokuapp.com/users`.
 - We can evaluate how we can get data into the console about each user.
-
-## In-Class Lab / Homework
-- Make a GET request call out to `http://daretodiscover.herokuapp.com/wines`.
-- Take the returned data and create a simple HTML template to show the data for each wine.
+- Take this data and create a simple HTML template to insert it into.
 
 ## How to Use Handlebars
 - Handlebars templates are handled through `<script>` tags, which allow them to be ignored while rendering the page:
